@@ -10,10 +10,10 @@ const port = 8000;
 const host = 'localhost';
 
 const wss = new websocket.Server({ server });
-wss.on('headers', (headers, _req) => {
+wss.on('headers', (headers) => {
   console.log(headers);
 });
-wss.on('connection', (ws, _req) => {
+wss.on('connection', (ws) => {
   ws.send('Welcome to the websocket server!!!');
   ws.on('message', (msg) => {
     console.log(msg.toString('utf8'));
